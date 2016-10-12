@@ -21,7 +21,7 @@
   "dependencies": {
     "es6-promise": "^2.0.0",
     "isomorphic-fetch": "^2.1.0",
-    "marty-lib": "git+https://git@github.com/alex-mcleod/marty-lib.git#master"
+    "marty-lib": "github:alex-mcleod/marty-lib#master"
   },
   "devDependencies": {
     "babel": "^5.0.0",
