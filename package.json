@@ -1,8 +1,7 @@
 {
   "name": "marty",
   "version": "0.11.0",
-  "description":
-    "A Javascript library for state management in React applications",
+  "description": "A Javascript library for state management in React applications",
   "main": "marty.js",
   "directories": {
     "doc": "./doc",
@@ -15,8 +14,12 @@
     "type": "git",
     "url": "git@github.com:martyjs/marty.git"
   },
-  "keywords": ["react", "flux"],
+  "keywords": [
+    "react",
+    "flux"
+  ],
   "dependencies": {
+    "create-react-class": "^15.6.3",
     "es6-promise": "^2.0.0",
     "isomorphic-fetch": "^2.1.0",
     "marty-lib": "github:alex-mcleod/marty-lib#react-16",
@@ -48,7 +51,9 @@
     "url": "https://github.com/martyjs/marty/issues"
   },
   "browserify": {
-    "transform": ["babelify"]
+    "transform": [
+      "babelify"
+    ]
   },
   "homepage": "https://martyjs.org",
   "typescript": {
