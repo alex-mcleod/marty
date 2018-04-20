@@ -1,14 +1,17 @@
-var windowDefined = typeof window !== "undefined";
+const PropTypes = require('prop-types');
 
-if (typeof global === "undefined" && windowDefined) {
+const windowDefined = typeof window !== 'undefined';
+
+if (typeof global === 'undefined' && windowDefined) {
   window.global = window;
 }
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
-var Marty = require('marty-lib/modules/core/marty');
-var marty = new Marty('0.11.0', react(), reactDomServer());
+const Marty = require('marty-lib/modules/core/marty');
+
+const marty = new Marty('0.11.0', react(), reactDomServer());
 
 marty.use(require('marty-lib/modules/core'));
 marty.use(require('marty-lib/modules/constants'));
@@ -29,11 +32,17 @@ marty.use(require('marty-lib/modules/local-storage-state-source'));
 module.exports = marty;
 
 function react() {
+  const reactObj = _getReact();
+  reactObj.PropTypes = PropTypes;
+  return reactObj;
+}
+
+function _getReact() {
   try {
-    return module.parent.require("react");
+    return module.parent.require('react');
   } catch (e) {
     try {
-      return require("react");
+      return require('react');
     } catch (e) {
       if (windowDefined && window.React) {
         return window.React;
@@ -46,10 +55,10 @@ function react() {
 
 function reactDomServer() {
   try {
-    return module.parent.require("react-dom/server");
+    return module.parent.require('react-dom/server');
   } catch (e) {
     try {
-      return require("react-dom/server");
+      return require('react-dom/server');
     } catch (e) {
       if (windowDefined) {
         if (!window.ReactDOMServer) {
